@@ -29,6 +29,7 @@ class BootState extends Phaser.State {
         this.game.load.audio('sfx:hiii','assets/iihhrrl.mp3')
         this.game.load.audio('sfx:fon','assets/yoda.mp3')
         this.game.load.audio('sfx:solado','assets/solado.mp3')
+        this.game.load.audio('sfx:lagoaqui','assets/lagoaqui.mp3')
         
 
         // map

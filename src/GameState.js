@@ -50,7 +50,8 @@ class GameState extends BaseState {
             coin: this.game.add.audio('sfx:coin'),
             hiii: this.game.add.audio('sfx:hiii'),
             fon: this.game.add.audio('sfx:fon'),
-            solado: this.game.add.audio('sfx:solado')
+            solado: this.game.add.audio('sfx:solado'),
+            lagoaqui: this.game.add.audio('sfx:lagoaqui')
         }
 
         //game.time.advancedTiming = true;
@@ -241,6 +242,8 @@ class GameState extends BaseState {
 
             this.updateHud()
             this.game.camera.shake(0.01, 200);
+
+            this.sfx.lagoaqui.play()
 
             // empurra jogador na direcao oposta a da colisao
             let forceDirection = this.game.physics.arcade.angleBetween(obstacle, player)

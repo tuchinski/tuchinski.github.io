@@ -30,6 +30,7 @@ class Mage extends Phaser.Sprite {
         this.animations.add('jump', [8,9,10,11], 4, true)                                                                                                                                       
         this.animations.add('idle', [0], 8, true)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
         
+
         this.events.onKilled.addOnce(function () {
             this.body.velocity.x = 0
             this.visible = true
