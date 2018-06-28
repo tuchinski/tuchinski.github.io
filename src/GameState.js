@@ -234,6 +234,7 @@ class GameState extends BaseState {
         if (player.alive) {
             player.damage(1)
             this.updateHud()
+            this.sfx.lagoaqui.play()
             //fal o player voltar para a posição inicial
             player.x = config.PLAYER_X
             player.y = config.PLAYER_Y
@@ -243,7 +244,6 @@ class GameState extends BaseState {
             this.updateHud()
             this.game.camera.shake(0.01, 200);
 
-            this.sfx.lagoaqui.play()
 
             // empurra jogador na direcao oposta a da colisao
             let forceDirection = this.game.physics.arcade.angleBetween(obstacle, player)
