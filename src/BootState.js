@@ -10,7 +10,7 @@ class BootState extends Phaser.State {
         this.game.load.image('fog', 'assets/fog.png')
         this.game.load.image('saw', 'assets/saw.png')
         this.game.load.image('smoke', 'assets/smoke.png')
-        this.game.load.image('title', 'assets/title.png')
+        this.game.load.image('title', 'assets/name.png')
         this.game.load.image('newPlayer', 'assets/wabbit.png')
 
         
@@ -23,18 +23,35 @@ class BootState extends Phaser.State {
         this.game.load.spritesheet('spider', 'assets/spider_spritesheet.png', 42, 32);
 
         this.game.load.spritesheet('mage', 'assets/mage.png', 64, 64)
+        this.game.load.spritesheet('bats', 'assets/Bats2.png', 48, 40)
+        this.game.load.spritesheet('goblin', 'assets/goblin.png', 40, 40)
+        this.game.load.spritesheet('boss', 'assets/spidertank01.png', 190, 190)
+
+
 
         //sound
         this.game.load.audio('sfx:coin','assets/coin_sound2.mp3')
-        this.game.load.audio('sfx:hiii','assets/iihhrrl.mp3')
-        this.game.load.audio('sfx:fon','assets/yoda.mp3')
-        this.game.load.audio('sfx:solado','assets/solado.mp3')
-        this.game.load.audio('sfx:lagoaqui','assets/lagoaqui.mp3')
-        
+        this.game.load.audio('sfx:jump','assets/jump.wav')
+        this.game.load.audio('sfx:fall','assets/caindo.mp3')
+        this.game.load.audio('sfx:gameOver','assets/tf_nemesis.mp3')
+        this.game.load.audio('sfx:theme','assets/themeMusic.mp3')
+        this.game.load.audio('sfx:hiii', 'assets/iihhrrl.mp3')
+        this.game.load.audio('sfx:fon', 'assets/fon.mp3')
+        this.game.load.audio('sfx:fon', 'assets/fon.mp3')
+        this.game.load.audio('sfx:solado', 'assets/solado.mp3')
+        this.game.load.audio('sfx:lagoaqui', 'assets/lagoaqui.mp3')
+
+
+
+   
 
         // map
         this.game.load.tilemap('level1', 'assets/level1.json', null, Phaser.Tilemap.TILED_JSON);
         this.game.load.tilemap('level2', 'assets/level2.json', null, Phaser.Tilemap.TILED_JSON)
+        this.game.load.tilemap('level3', 'assets/level3.json', null, Phaser.Tilemap.TILED_JSON)
+        this.game.load.tilemap('level4', 'assets/level4.json', null, Phaser.Tilemap.TILED_JSON)
+        this.game.load.tilemap('level5', 'assets/level5.json', null, Phaser.Tilemap.TILED_JSON)
+        this.game.load.tilemap('levelFinal', 'assets/finalMap.json', null, Phaser.Tilemap.TILED_JSON)
         this.game.load.image('tiles1','assets/tileset-42x42.png');
     }
 
