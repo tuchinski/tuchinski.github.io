@@ -18,6 +18,7 @@ class TitleState extends BaseState {
         
 
         let startButton = this.input.keyboard.addKey(Phaser.Keyboard.ENTER);
+        this.game.input.onDown.add(this.startGame, this)
         startButton.onDown.add(this.startGame, this)    
 
         this.initFullScreenButtons() 

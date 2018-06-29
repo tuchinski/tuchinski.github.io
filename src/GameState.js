@@ -51,6 +51,7 @@ class GameState extends BaseState {
 
         let fullScreenButton = this.game.input.keyboard.addKey(Phaser.Keyboard.ONE)
         fullScreenButton.onDown.add(this.toggleFullScreen, this)
+        this.initFullScreenButtons()
 
         this.sfx = {
             coin: this.game.add.audio('sfx:coin'),
@@ -61,23 +62,26 @@ class GameState extends BaseState {
             lagoaqui: this.game.add.audio('sfx:lagoaqui')
         }
 
-        //game.time.advancedTiming = true;
-        this.initFullScreenButtons()
+        // this.detectar_mobile()
 
-        let vpad = new VirtualGamepad(this.game)
-        this.game.add.existing(vpad)
+        // game.time.advancedTiming = true;
 
-        let jumpButton = vpad.addActionButton(
-            this.game.width - 100, this.game.height - 100, 'vstick_button',
-            () => this.mage.jump())
+        if (this.detectar_mobile()) {
+            let vpad = new VirtualGamepad(this.game)
+            this.game.add.existing(vpad)
 
-        let dpadButton = vpad.addDPadButton(
-            155, this.game.height - 100, 'vstick_dpad', {
-                leftPressed: () => this.mage.cursors.left.isDown = true,
-                leftReleased: () => this.mage.cursors.left.isDown = false,
-                rightPressed: () => this.mage.cursors.right.isDown = true,
-                rightReleased: () => this.mage.cursors.right.isDown = false
-            })
+            let jumpButton = vpad.addActionButton(
+                this.game.width - 100, this.game.height - 100, 'vstick_button',
+                () => this.mage.jump())
+
+            let dpadButton = vpad.addDPadButton(
+                155, this.game.height - 100, 'vstick_dpad', {
+                    leftPressed: () => this.mage.cursors.left.isDown = true,
+                    leftReleased: () => this.mage.cursors.left.isDown = false,
+                    rightPressed: () => this.mage.cursors.right.isDown = true,
+                    rightReleased: () => this.mage.cursors.right.isDown = false
+                })
+        }
 
     }
 
@@ -286,14 +290,33 @@ class GameState extends BaseState {
 
     }
 
+    detectar_mobile() {
+        if (navigator.userAgent.match(/Android/i)
+            || navigator.userAgent.match(/webOS/i)
+            || navigator.userAgent.match(/iPhone/i)
+            || navigator.userAgent.match(/iPad/i)
+            || navigator.userAgent.match(/iPod/i)
+            || navigator.userAgent.match(/BlackBerry/i)
+            || navigator.userAgent.match(/Windows Phone/i)
+        ) {
+            console.log('mobile')
+            return true
+        }
+        else {
+            console.log('pc')
+            return false
+        }
+    }
+
     moveBoss() {
         this.game.physics.arcade.moveToXY(this.boss, this.mage.x, this.mage.y, 60, 1000)
     }
 
     checkCoins() {
-        if (this.mage.coins == 15) {
+        if (this.mage.coins == 10) {
             this.mage.coins = this.mage.coins - 10
             this.mage.health = this.mage.health + 1
+            this.updateHud()
         }
     }
 

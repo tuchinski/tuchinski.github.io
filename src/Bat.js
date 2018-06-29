@@ -2,13 +2,14 @@ class Bat extends Phaser.Sprite {
     constructor(game, x, y, img) {
         super(game, x, y, img)
         this.anchor.set(0.5, 0.5)
-
+        
         this.animations.add('fly', [0, 1, 2, 3], 8, true)
         this.animations.play('fly')
-
+        
         this.game.physics.enable(this)
         this.body.gravity.y = 0
-
+        this.body.setSize(43,30,3,4)
+        
         this.body.collideWorldBounds = true
         this.body.velocity.x = config.BAT_VELOCITY
         // this.varAux = 0

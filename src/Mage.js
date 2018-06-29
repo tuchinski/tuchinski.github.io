@@ -6,8 +6,8 @@ class Mage extends Phaser.Sprite {
         this.anchor.setTo(0.5, 0.5)
         this.body.drag.set(config.PLAYER_DRAG)
         this.body.maxVelocity.set(config.PLAYER_MAX_VELOCITY)
-        this.body.mass = 0.1
-        this.body.gravity.y = 750
+        // this.body.mass = 0.1
+        this.body.gravity.y = 700
         // this.body.allowGravity = true
         this.body.friction.setTo(0, 0)
         this.body.setSize(23, 34, 20, 15)
@@ -69,7 +69,6 @@ class Mage extends Phaser.Sprite {
                 //if(this.cursors.up.isDown && this.body.onFloor()){
                     this.body.velocity.y = -config.PLAYER_JUMP
                     this.sfx.jump.play()
-                    this.animations.play('die', 1, false)
             }
     }
         
